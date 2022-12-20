@@ -10,7 +10,7 @@ I will be happy, if something will be useful for you.
 Some of that code was used for my PhD Thesis ([PhD summary](https://cloud.physics.itmo.ru/s/bz6SCaFym7nEdWa), [Thesis in Ru](http://dissovet.itmo.ru/qr/?number=596524)), and for some publication:
 for Example: Lebedev, Denis V., et al. "Nanoscale Electrically Driven Light Source Based on Hybrid Semiconductor/Metal Nanoantenna." The Journal of Physical Chemistry Letters 13 (2022): 4612-4620. DOI:10.1021/acs.jpclett.2c00986 IF:6.38 Q1
 
-
+(Some code was writen in 2017, and I think, i can use not the best solutions.)
 
 ## MatrixDirStatGUI.py
 
@@ -79,6 +79,22 @@ Try to find the corresponding pulse log, and read DAC params
 Script to analize QE during of current-voltage characteristics (or V-sweeep).
 
 
-
-
-
+## MySpecFunc
+The file with usefull function for working with spectra
+It use this lib https://github.com/rohanisaac/spc, but with some fixes for Python3 working. You find this lib in project. (I'm not sure in source link)
+Functions:
+- GetFolderStat - simple version of MatrixDirStat.py
+- workWithSpcZip() - if you measure a lot of spectra you can store in zip-file, and unpack on-demand in /tmp
+- get_match_filenames(...) - search files with pattern in name
+- loadspc(...) - reader of spc-spectrum from SPC to turple.
+- AndourQE() - Quantum efficiency of my Andour CCD
+- HFF() - if I not mistake, it is hardware function for LabRam HR800 with NIR50x0.42 Mitutoyo objective, and some mirrors. It was TriOS by AIST-NT. It was calculated by experiment with black-body radiation like lamp. It include Andour CCD QE.
+- gauss_function(shift,area,centre,width)
+- TrC(...) spectra processing function.
+- loadPulseLog() - read file with pulse counter log and return some stat
+- loadxy() - usefull function for read text data from Aist, Gwiddion, OceanInsight (OceanOptics).
+  - also, it can remove spikes from not narrow spectrum
+- GaussFit() - gaussian fitting of data with 1 guass function
+- PlotProcessing - processing of optical spectrum
+- coma2point() - just replace coma to point in txt file
+- p2c() - some, but replace points to comas
